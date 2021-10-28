@@ -22,7 +22,7 @@ function StartWatcher(path) {
   });
   watcher.on("delete", function (file) {
     fileAddLog(
-      "File deleted : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File deleted : " + file,
       "delete"
     );
   });
@@ -84,10 +84,3 @@ function fileAddLog(message, type) {
   newItem.appendChild(textnode);
   el.appendChild(newItem);
 }
-
-function updateOnlineStatus () {
-    document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline'
-  }
-  
-  window.addEventListener('online', updateOnlineStatus)
-  window.addEventListener('offline', updateOnlineStatus)
