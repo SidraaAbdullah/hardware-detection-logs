@@ -9,13 +9,22 @@ function StartWatcher(path) {
 
   watcher = hound.watch(path);
   watcher.on("create", function (file, stats) {
-    fileAddLog("File created : " + file, "create");
+    fileAddLog(
+      "File created : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "create"
+    );
   });
   watcher.on("change", function (file, stats) {
-    fileAddLog("File changed : " + file, "change");
+    fileAddLog(
+      "File changed : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "change"
+    );
   });
   watcher.on("delete", function (file) {
-    fileAddLog("File deleted : " + file, "delete");
+    fileAddLog(
+      "File deleted : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "delete"
+    );
   });
 }
 
