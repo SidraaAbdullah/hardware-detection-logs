@@ -2,18 +2,7 @@ const electron = require("electron");
 // Importing the app module using Electron remote
 const app = electron.remote.app;
 
-app.on("gpu-info-update", () => {
-  console.log("GPU Information has been Updated");
-});
-
-app.on("gpu-process-crashed", (event, killed) => {
-  console.log("GPU Process has crashed");
-  console.log(event);
-  console.log("Whether GPU Process was killed - ", killed);
-});
-
-var metrics = document.getElementById("metrics");
-metrics.addEventListener("click", () => {
+setInterval(function () {
   app
     .getAppMetrics()
     .map((val) =>
@@ -21,8 +10,7 @@ metrics.addEventListener("click", () => {
         "Pid : " + val.pid + " , " + val.type + " : " + val.cpu.percentCPUUsage
       )
     );
-  console.log(app.getAppMetrics());
-});
+}, 3000);
 
 function checkGPU(message) {
   var el = document.getElementById("gpu-info");
