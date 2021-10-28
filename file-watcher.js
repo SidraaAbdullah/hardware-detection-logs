@@ -22,7 +22,7 @@ function StartWatcher(path) {
   });
   watcher.on("delete", function (file) {
     fileAddLog(
-      "File deleted : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File deleted : " + file,
       "delete"
     );
   });
