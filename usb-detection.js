@@ -63,7 +63,7 @@ usbDetect
 usbDetect.stopMonitoring();
 
 function addLog(message, type) {
-  var el = document.getElementById("usb-log-container");
+  var el = document.getElementById("usb-logs");
   var newItem = document.createElement("LI");
   var textnode = document.createTextNode(message);
   if (type == "remove") {
@@ -75,4 +75,8 @@ function addLog(message, type) {
   }
   newItem.appendChild(textnode);
   el.appendChild(newItem);
+}
+
+function usbResetLog() {
+  return (document.getElementById("usb-logs").innerHTML = "");
 }

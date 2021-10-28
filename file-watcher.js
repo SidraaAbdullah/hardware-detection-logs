@@ -9,13 +9,13 @@ function StartWatcher(path) {
 
   watcher = hound.watch(path);
   watcher.on("create", function (file, stats) {
-    addLog("File created : " + file, "create");
+    fileAddLog("File created : " + file, "create");
   });
   watcher.on("change", function (file, stats) {
-    addLog("File changed : " + file, "change");
+    fileAddLog("File changed : " + file, "change");
   });
   watcher.on("delete", function (file) {
-    addLog("File deleted : " + file, "delete");
+    fileAddLog("File deleted : " + file, "delete");
   });
 }
 
@@ -57,12 +57,12 @@ document.getElementById("stop").addEventListener(
   false
 );
 
-function resetLog() {
-  return (document.getElementById("log-container").innerHTML = "");
+function fileResetLog() {
+  return (document.getElementById("file-logs").innerHTML = "");
 }
 
-function addLog(message, type) {
-  var el = document.getElementById("file-log-container");
+function fileAddLog(message, type) {
+  var el = document.getElementById("file-logs");
   var newItem = document.createElement("LI");
   var textnode = document.createTextNode(message);
   if (type == "delete") {

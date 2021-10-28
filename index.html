@@ -8,19 +8,21 @@
     <div>
       <h1>File Watcher</h1>
       <h3 id="messageLogger"></h3>
-      <br />
       <button type="button" id="start">Select folder to watch</button>
       <br />
       <button type="button" id="stop" style="display: none">
         Stop watching
       </button>
       <br />
-      <button type="button" onclick="resetLog();">Reset log</button>
-      <ul id="file-log-container"></ul>
+      <h3>Logs:</h3>
+      <ul id="file-logs"></ul>
+      <button type="button" onclick="fileResetLog();">Reset log</button>
     </div>
     <div>
       <h1>Usb Detector</h1>
-      <ul id="usb-log-container"></ul>
+      <h3>Logs:</h3>
+      <ul id="usb-logs"></ul>
+      <button type="button" onclick="usbResetLog();">Reset log</button>
     </div>
     <script src="./file-watcher.js"></script>
     <script src="./usb-detection.js"></script>
