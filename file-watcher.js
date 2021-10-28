@@ -10,27 +10,23 @@ function StartWatcher(path) {
   watcher = hound.watch(path);
   watcher.on("create", function (file, stats) {
     fileAddLog(
-      "File created : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File created : " + file + " " + "(Size : " + stats.size + " bytes)",
       "create"
     );
   });
   watcher.on("change", function (file, stats) {
     fileAddLog(
-      "File changed : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File changed : " + file + " " + "(Size : " + stats.size + " bytes)",
       "change"
     );
   });
   watcher.on("delete", function (file) {
-    fileAddLog(
-      "File deleted : " + file,
-      "delete"
-    );
+    fileAddLog("File deleted : " + file, "delete");
   });
 }
 
 // // Unwatch specific files or directories.
 // watcher.unwatch("/tmp/another_file");
-
 // // Unwatch all watched files and directories.
 // watcher.clear();
 
