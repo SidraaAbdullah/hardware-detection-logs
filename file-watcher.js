@@ -1,36 +1,32 @@
 var hound = require("hound");
 var watcher;
 function StartWatcher(path) {
-  document.getElementById("start").disabled = true;
+  // document.getElementById("start").disabled = true;
   document.getElementById("stop").style.display = "block";
   document.getElementById(
     "messageLogger"
-  ).innerHTML = `Current Watching Path: ${path}`;
-
+  ).innerHTML += `<br> Current Watching Path: ${path}`;
+  document.getElementById("errorLogger").innerHTML =''
   watcher = hound.watch(path);
   watcher.on("create", function (file, stats) {
     fileAddLog(
-      "File created : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File created : " + file + " " + "(Size : " + stats.size + " bytes)",
       "create"
     );
   });
   watcher.on("change", function (file, stats) {
     fileAddLog(
-      "File changed : " + file + ' ' + "(Size : " + stats.size + " bytes)",
+      "File changed : " + file + " " + "(Size : " + stats.size + " bytes)",
       "change"
     );
   });
   watcher.on("delete", function (file) {
-    fileAddLog(
-      "File deleted : " + file,
-      "delete"
-    );
+    fileAddLog("File deleted : " + file, "delete");
   });
 }
 
 // // Unwatch specific files or directories.
 // watcher.unwatch("/tmp/another_file");
-
 // // Unwatch all watched files and directories.
 // watcher.clear();
 
@@ -60,8 +56,9 @@ document.getElementById("stop").addEventListener(
     watcher.clear();
     document.getElementById("start").disabled = false;
     document.getElementById("stop").style.display = "none";
-    document.getElementById("messageLogger").innerHTML =
+    document.getElementById("errorLogger").innerHTML =
       "Nothing is being watched";
+      document.getElementById("messageLogger").innerHTML=''
   },
   false
 );
