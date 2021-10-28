@@ -17,14 +17,14 @@ metrics.addEventListener("click", () => {
   app
     .getAppMetrics()
     .map((val) =>
-      addLog(
+      checkGPU(
         "Pid : " + val.pid + " , " + val.type + " : " + val.cpu.percentCPUUsage
       )
     );
   console.log(app.getAppMetrics());
 });
 
-function addLog(message) {
+function checkGPU(message) {
   var el = document.getElementById("gpu-info");
   var newItem = document.createElement("LI");
   var textnode = document.createTextNode(message);
