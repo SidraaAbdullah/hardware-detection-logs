@@ -7,10 +7,10 @@ setInterval(function () {
     .getAppMetrics()
     .map((val) =>
       checkGPU(
-        "Pid : " + val.pid + " , " + val.type + " : " + val.cpu.percentCPUUsage
+        "Pid : " + val.pid + " , " + val.type + " usage: " + val.cpu.percentCPUUsage
       )
     );
-}, 3000);
+}, 5000);
 
 function checkGPU(message) {
   var el = document.getElementById("gpu-info");
