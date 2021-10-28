@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Watcher</title>
+  </head>
+  <body>
+    <div>
+      <h1>File Watcher</h1>
+      <h3 id="messageLogger"></h3>
+      <br />
+      <button type="button" id="start">Select folder to watch</button>
+      <br />
+      <button type="button" id="stop" style="display: none">
+        Stop watching
+      </button>
+      <br />
+      <button type="button" onclick="resetLog();">Reset log</button>
+      <ul id="file-log-container"></ul>
+    </div>
+    <div>
+      <h1>Usb Detector</h1>
+      <ul id="usb-log-container"></ul>
+    </div>
+    <script src="./file-watcher.js"></script>
+    <script src="./usb-detection.js"></script>
+  </body>
+</html>
