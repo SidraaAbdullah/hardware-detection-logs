@@ -57,9 +57,6 @@ document.getElementById("stop").addEventListener(
   false
 );
 
-function fileResetLog() {
-  return (document.getElementById("file-logs").innerHTML = "");
-}
 let table = document.createElement("table");
 let thead = document.createElement("thead");
 let tbody = document.createElement("tbody");
@@ -85,7 +82,6 @@ row_1.appendChild(heading_3);
 thead.appendChild(row_1);
 
 function fileAddLog(action, location, size) {
-  var el = document.getElementById("file-logs");
   let row_2 = document.createElement("tr");
   let row_2_data_1 = document.createElement("td");
   row_2_data_1.innerHTML = action;
