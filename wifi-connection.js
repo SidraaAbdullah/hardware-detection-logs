@@ -1,5 +1,5 @@
-let time = new Date();
 function refresh() {
+  let time = new Date().toLocaleString();
   let el = document.getElementById("wifi");
   let data = navigator.onLine
     ? `Network connected at ${time}`
