@@ -1,0 +1,35 @@
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border-right: 1px solid black;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+.tablink:focus {
+  background-color: #777;
+}
+.tablink:hover {
+  background-color: #777;
+}
+.tabcontent {
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #ddd;
+}
+td,
+th {
+  border: 1px solid gray;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}

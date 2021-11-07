@@ -3,11 +3,17 @@ const electron = require("electron");
 const app = electron.remote.app;
 
 setInterval(function () {
+  document.getElementById("gpu-info").innerHTML = "";
   app
     .getAppMetrics()
     .map((val) =>
       checkGPU(
-        "Pid : " + val.pid + " , " + val.type + " usage: " + val.cpu.percentCPUUsage
+        "Pid : " +
+          val.pid +
+          " , " +
+          val.type +
+          " usage: " +
+          val.cpu.percentCPUUsage
       )
     );
 }, 5000);

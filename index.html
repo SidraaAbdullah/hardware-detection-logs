@@ -9,68 +9,105 @@
       crossorigin="anonymous"
     />
     <meta charset="UTF-8" />
-    <title>Watcher</title>
+    <title>Siem</title>
   </head>
   <body>
-    <div class="p-3">
-      <div class="d-flex justify-content-between py-2">
+    <button class="tablink" onclick="onClick('wifi-connection')">
+      Network Watcher
+    </button>
+    <button class="tablink" onclick="onClick('file')">File Watcher</button>
+    <button class="tablink" onclick="onClick('usb')">USB Detection</button>
+    <button class="tablink" onclick="onClick('gpu')">GPU Information</button>
+
+    <div
+      id="battery"
+      class="d-flex flex-column justify-content-between p-3 tabcontent"
+    >
+      <div class="d-flex justify-content-between h-100">
         <h4 class="text-danger" id="battery-percentage"></h4>
         <h4 id="battery-charging-state"></h4>
       </div>
-
-      <div class="py-3">
-        <h4>Directory Watcher</h4>
-        <p id="messageLogger"></p>
-        <p id="errorLogger"></p>
-        <div class="d-flex">
-          <button class="btn btn-primary" type="button" id="start">
-            Select folder to watch
+    </div>
+    <div id="wifi-connection" class="tabcontent py-4">
+      <h5>Network Watcher</h5>
+      <div class="my-3">
+        <ul class="border border-secondary bg-light" id="wifi"></ul>
+        <div>
+          <button class="btn btn-primary" type="button" onclick="refresh();">
+            Refresh
           </button>
-          <button
-            class="btn btn-primary ml-2"
-            type="button"
-            id="stop"
-            style="display: none"
-          >
-            Stop watching
-          </button>
-        </div>
-        <div class="my-3">
-          <h5>Logs:</h5>
-          <ul class="border border-secondary bg-light" id="file-logs"></ul>
           <button
             class="btn btn-secondary"
             type="button"
-            onclick="fileResetLog();"
+            onclick="networkReset();"
           >
-            Reset log
+            Reset
           </button>
-        </div>
-      </div>
-
-      <div class="py-3">
-        <h4>Usb Detector</h4>
-        <div class="my-3">
-          <h5>Logs:</h5>
-          <ul class="border border-secondary bg-light" id="usb-logs"></ul>
-          <button
-            class="btn btn-secondary"
-            type="button"
-            onclick="usbResetLog();"
-          >
-            Reset log
-          </button>
-        </div>
-      </div>
-
-      <div class="py-3">
-        <h4>GPU Information</h4>
-        <div class="py-4">
-          <ul class="border border-secondary bg-light" id="gpu-info"></ul>
         </div>
       </div>
     </div>
 
+    <div id="file" class="p-3 tabcontent">
+      <h4>Directory Watcher</h4>
+      <p id="messageLogger"></p>
+      <p id="errorLogger"></p>
+      <div class="d-flex">
+        <button class="btn btn-primary" type="button" id="start">
+          Select folder to watch
+        </button>
+        <button
+          class="btn btn-secondary ml-2"
+          type="button"
+          id="stop"
+          style="display: none"
+        >
+          Stop watching
+        </button>
+      </div>
+      <div class="my-3">
+        <div class="pt-2 pb-4" id="file-logs"></div>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          onclick="fileResetLog();"
+        >
+          Reset log
+        </button>
+      </div>
+    </div>
+
+    <div id="usb" class="p-3 tabcontent">
+      <h4>Usb Detector</h4>
+      <div class="my-3">
+        <ul class="border border-secondary bg-light" id="usb-logs"></ul>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          onclick="usbResetLog();"
+        >
+          Reset log
+        </button>
+      </div>
+    </div>
+
+    <div id="gpu" class="p-3 tabcontent">
+      <h4>GPU Information</h4>
+      <div class="py-4">
+        <ul class="border border-secondary bg-light" id="gpu-info"></ul>
+      </div>
+    </div>
+    <script>
+      function onClick(tab) {
+        var i, tabcontent;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        // Show the specific tab content
+        document.getElementById(tab).style.display = "block";
+      }
+    </script>
+    <script src="./wifi-connection.js"></script>
     <script src="./file-watcher.js"></script>
     <script src="./usb-detection.js"></script>
     <script src="./battery-percentage.js"></script>
