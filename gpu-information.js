@@ -3,6 +3,8 @@ const electron = require("electron");
 const app = electron.remote.app;
 
 setInterval(function () {
+  var el = document.getElementById("gpu-info");
+  el.innerHTML=''
   app
     .getAppMetrics()
     .map((val) =>

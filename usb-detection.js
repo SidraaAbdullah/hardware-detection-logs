@@ -22,23 +22,6 @@ usbDetect.on("add:vid:pid", function (device) {
 usbDetect.on("remove", function (device) {
   addLog("Device removed : " + device.deviceName, "remove");
 });
-usbDetect.on("remove:vid", function (device) {
-  addLog("Device removed : " + device.deviceName, "remove");
-});
-usbDetect.on("remove:vid:pid", function (device) {
-  addLog("Device removed : " + device.deviceName, "remove");
-});
-
-// Detect add or remove (change)
-usbDetect.on("change", function (device) {
-  addLog("Device changed : " + device.deviceName, "change");
-});
-usbDetect.on("change:vid", function (device) {
-  addLog("Device changed : " + device.deviceName, "change");
-});
-usbDetect.on("change:vid:pid", function (device) {
-  addLog("Device changed : " + device.deviceName, "change");
-});
 
 // Get a list of USB devices on your system, optionally filtered by `vid` or `pid`
 usbDetect.find(function (err, devices) {
